@@ -3,6 +3,7 @@ import os
 import time
 
 from django.conf import settings
+from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 
 
@@ -28,5 +29,10 @@ class FileMockResponseMixin:
     def finalize_response(self, request, response, *args, **kwargs):
         if self.json_filename:
             time.sleep(self.delay_seconds)
-            return Response(self.get_mock_data(), status=self.mock_status)
+            response = Response(self.get_mock_data(), status=self.mock_status)
+            response.accepted_renderer = JSONRenderer()
+            response.accepted_media_type = "application/json"
+            response.renderer_context = {}
+
+            return response
         return super().finalize_response(request, response, *args, **kwargs)
