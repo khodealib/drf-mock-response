@@ -47,7 +47,7 @@ pip install /path/to/drf_mock_response/
 ```python
 # your_app/views/mocks.py
 
-from drf_mock_response.views import MockListAPIView
+from drf_mocker.views import MockListAPIView
 
 class ProductListMock(MockListAPIView):
     json_filename = "product_list.json"
@@ -76,7 +76,7 @@ your_app/json_mock/product_list.json
 ### 🔁 ViewSet Example
 
 ```python
-from drf_mock_response.viewsets import MockViewSet
+from drf_mocker.viewsets import MockViewSet
 
 class UserMockViewSet(MockViewSet):
     json_filename = "user_list.json"
