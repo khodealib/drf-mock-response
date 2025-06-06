@@ -33,7 +33,7 @@ your_app/
 ## 🚀 Installation
 
 ```bash
-pip install git+https://github.com/yourusername/drf-mock-response.git
+pip install git+https://github.com/khodealib/drf-mock-response.git
 ```
 
 Or after cloning:
